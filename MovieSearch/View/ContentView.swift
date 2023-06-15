@@ -18,15 +18,15 @@ struct ContentView: View {
                 }
             }
             .navigationBarTitle(Text("My App"))
-//            .onAppear {
-//                print("Staring up")
-//                search.fetch(for: $search.searchingFor)
-//            }
+            .onAppear {
+                print("Staring up")
+                search.fetchTrending(for: .day)
+            }
         }
         .searchable(text: $search.searchingFor, prompt: "Look for movies?")
         .onChange(of: search.searchingFor) { newMovie in
             print("new movie in view: \(newMovie)")
-            search.fetch(for: newMovie)
+            search.fetchUsingCombine(for: newMovie)
         }
     }
 }
