@@ -28,7 +28,7 @@ class MovieSearch: ObservableObject {
                     .map(\.data)
                     .decode(type: Post.self, decoder: JSONDecoder())
                     .sink { res in
-                        //to do
+                        //to do hat?
                     } receiveValue: { [weak self] newPost in
                         self?.movies = newPost.movies
                     }
